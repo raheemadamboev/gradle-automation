@@ -75,7 +75,11 @@ task copyApk(type: Copy) {
     def destinationDir = "$rootDir/apk"
     from sourceDir
     into destinationDir
-    rename "apk-debug.apk", "gradle-automation.apk"
+    rename "app-debug.apk", "gradle-automation.apk"
+    doLast {
+        def file = new File(destinationDir, "gradle-automation.apk")
+        ant.checksum file: file.path
+    }
 }
 
 tasks.whenTaskAdded { task ->
