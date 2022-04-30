@@ -69,3 +69,11 @@ task helloWorld() {
         println "It doesn't matter the order, I'm gonna executed before doLast"
     }
 }
+
+task copyApk(type: Copy) {
+    def sourceDir = layout.buildDirectory.dir("intermediates/apk/debug/app-debug.apk")
+    def destinationDir = "$rootDir/apk"
+    from sourceDir
+    into destinationDir
+    rename "apk-debug.apk", "gradle-automation.apk"
+}
