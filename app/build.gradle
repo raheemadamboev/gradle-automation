@@ -77,3 +77,9 @@ task copyApk(type: Copy) {
     into destinationDir
     rename "apk-debug.apk", "gradle-automation.apk"
 }
+
+tasks.whenTaskAdded { task ->
+    if (task.name == "assembleDebug") {
+        task.finalizedBy "copyApk"
+    }
+}
