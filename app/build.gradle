@@ -70,7 +70,7 @@ task helloWorld() {
     }
 }
 
-task copyApk(type: Copy) {
+task copyApk(type: Copy, dependsOn: "test") {
     def sourceDir = layout.buildDirectory.dir("intermediates/apk/debug/app-debug.apk")
     def destinationDir = "$rootDir/apk"
     from sourceDir
