@@ -16,6 +16,18 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions "tupac"
+    productFlavors {
+        biggie {
+            dimension "tupac"
+            applicationIdSuffix ".notorious"
+        }
+        nas {
+            dimension "tupac"
+            applicationIdSuffix ".nasty"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
